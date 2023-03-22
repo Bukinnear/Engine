@@ -7,7 +7,9 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
-Core::Core() : mainWindowIsOpen{false}, mainWindow{nullptr} {}
+Core::Core() : mainWindowIsOpen{false}, mainWindow{nullptr} 
+{
+}
 
 Core::~Core()
 {
@@ -30,7 +32,8 @@ const bool Core::InitializeGLEW()
 		glfwTerminate();
 		return false;
 	}
-	std::cout << "Status: Using GLEW %s\n" << glewGetString(GLEW_VERSION);
+	std::cout << "Status: Using GLEW " << glewGetString(GLEW_VERSION) << "\n";
+	return true;
 }
 
 GLFWwindow* Core::CreateMainWindow(int width, int height, const char* title)
